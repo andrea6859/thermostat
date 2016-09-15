@@ -1,6 +1,7 @@
 $( document ).ready(function() {
   var thermostat = new Thermostat();
   updateTemperature();
+  $('#city').text("london");
 
   $.get('http://api.openweathermap.org/data/2.5/weather?q=London&appid=8f01d60ae9cfeccc3b8feee74f0a4c0c&units=metric', function(data) {
   $('#current-temperature').text(data.main.temp);
@@ -18,12 +19,13 @@ function displayWeather() {
   $.get(url + city + apiKey + units, function(data) {
     $('#current-temperature').text(data.main.temp);
   });
+  $('#city').text(city);
 }
 
   function updateTemperature() {
     $('#temperature').text(thermostat.temperature);
     $('#power-saving-status').text(thermostat.powersavemode);
-    $('#temperature').attr('class', thermostat.energyUsage());
+    // $('#temperature').attr('class', thermostat.energyUsage());
   }
 
   $("#temperature-up").on("click", function () {

@@ -29,7 +29,7 @@ Thermostat.prototype.reset = function () {
   this.temperature = this.defaulttemperature;
 };
 
-Thermostat.prototype.energyusage = function () {
+Thermostat.prototype.energyUsage = function () {
   if (this.temperature < this.mediumusagetemp) {
    return "low-usage";
  }
